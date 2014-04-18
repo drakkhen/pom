@@ -5,10 +5,12 @@ Command line pomodoro timer.
 
 This is primarily to show the timer in my tmux statusbar.
 
+
 Installation
 ------------
 
 Copy `pom` somewhere in your $PATH, e.g. ~/bin.
+
 
 Commands
 --------
@@ -20,4 +22,22 @@ Commands
 - `pom shutdown`: shutdown the pom server
 - `pom status`: information about the current pomodoro
 - `pom tmux`: output suitable for the tmux status bar
+
+
+Tmux Integration
+----------------
+
+Sample .tmux.conf bindings:
+
+`bind m run 'pom stop'`
+`bind v run 'pom pause'`
+`bind b run 'pom start'`
+
+Status bar integration:
+
+`set -g status-right "#(pom tmux)"`
+
+If you add pom to your status bar, you might want to increase its update rate:
+
+`set -g status-interval 1`
 
